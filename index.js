@@ -26,3 +26,20 @@ firstBox.addEventListener('click', function (event) {
   console.log("  - event.currentTarget:", event.currentTarget);
   event.stopPropagation();
 });
+
+var link = document.getElementById('website-link');
+link.addEventListener('click', function (event) {
+  console.log("== Link was clicked.");
+  event.preventDefault();
+});
+
+var container = document.getElementById('box-container');
+container.addEventListener('click', function (event) {
+  console.log("== Box container clicked");
+  // console.log("  - event.target:", event.target);
+  if (event.target.classList.contains('in-box-button')) {
+    console.log("  - A button was clicked!");
+    var buttonBox = event.target.parentNode;
+    buttonBox.classList.toggle('highlighted');
+  }
+});
